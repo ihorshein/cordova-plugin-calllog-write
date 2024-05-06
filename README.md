@@ -136,41 +136,41 @@ try
 {
   const o_call_log_write = cordova.plugins.CallLogWrite;
 
-  // Clearing the call list
-  o_call_log_write.clear(false,     
+  // Clearing the call list.
+  o_call_log_write.clear(false,
     function()
     {
-      alert('Ok ' + JSON.stringify(arguments));
-    },
-    function()
-    {
-      alert('Error ' + JSON.stringify(arguments));
-    }
-  );
-  
-  // Write multiple call logs.
-  const o_log1 = {};
-  o_log1[o_call_log_write.NUMBER] = '1234-5678-90';
-  o_log1[o_call_log_write.DATE] = Date.now();
-  o_log1[o_call_log_write.DURATION] = 60;
-  o_log1[o_call_log_write.TYPE] = o_call_log_write.OUTGOING_TYPE;
-  o_log1[o_call_log_write.NEW] = 0;
-  o_log1[o_call_log_write.IS_READ] = 0;
+      alert('Delete ' + JSON.stringify(arguments));
 
-  const o_log2 = {};
-  o_log2[o_call_log_write.NUMBER] = '4552-1234-90';
-  o_log2[o_call_log_write.DATE] = Date.now();
-  o_log2[o_call_log_write.DURATION] = 300;
-  o_log2[o_call_log_write.TYPE] = o_call_log_write.MISSED_TYPE;
-  o_log2[o_call_log_write.NEW] = 1;
-  o_log2[o_call_log_write.IS_READ] = 0;
+      // Write multiple call logs.
+      const o_log1 = {};
+      o_log1[o_call_log_write.NUMBER] = '1234-5678-90';
+      o_log1[o_call_log_write.DATE] = Date.now();
+      o_log1[o_call_log_write.DURATION] = 60;
+      o_log1[o_call_log_write.TYPE] = o_call_log_write.OUTGOING_TYPE;
+      o_log1[o_call_log_write.NEW] = 0;
+      o_log1[o_call_log_write.IS_READ] = 0;
 
-  o_call_log_write.insertBulk(
-    [o_log1, o_log2],
-    true, // Application already has access to the permission
-    function()
-    {
-      alert('Ok ' + JSON.stringify(arguments));
+      const o_log2 = {};
+      o_log2[o_call_log_write.NUMBER] = '4552-1234-90';
+      o_log2[o_call_log_write.DATE] = Date.now();
+      o_log2[o_call_log_write.DURATION] = 300;
+      o_log2[o_call_log_write.TYPE] = o_call_log_write.MISSED_TYPE;
+      o_log2[o_call_log_write.NEW] = 1;
+      o_log2[o_call_log_write.IS_READ] = 0;
+
+      o_call_log_write.insertBulk(
+          [o_log1, o_log2],
+          true, // Application already has access to the permission.
+          function()
+          {
+            alert('Insert ' + JSON.stringify(arguments));
+          },
+          function()
+          {
+            alert('Error ' + JSON.stringify(arguments));
+          }
+      );
     },
     function()
     {
