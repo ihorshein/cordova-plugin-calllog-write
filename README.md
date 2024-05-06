@@ -58,12 +58,12 @@ try
   o_log1[o_call_log_write.IS_READ] = 0;
 
   const o_log2 = {};
-  o_log1[o_call_log_write.NUMBER] = '4552-1234-90';
+  o_log2[o_call_log_write.NUMBER] = '4552-1234-90';
   o_log2[o_call_log_write.DATE] = Date.now();
   o_log2[o_call_log_write.DURATION] = 300;
   o_log2[o_call_log_write.TYPE] = o_call_log_write.MISSED_TYPE;
   o_log2[o_call_log_write.NEW] = 1;
-  o_log1[o_call_log_write.IS_READ] = 0;
+  o_log2[o_call_log_write.IS_READ] = 0;
 
   o_call_log_write.writeBulk(
     [o_log1, o_log2],
