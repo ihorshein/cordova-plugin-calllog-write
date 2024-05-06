@@ -1,0 +1,40 @@
+{
+  "name": "cordova-plugin-calllog-write",
+  "version": "1.0.0",
+  "description": "Cordova plugin that allows the application to write the user's call log data.",
+  "cordova": {
+    "id": "cordova-plugin-calllog-write",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihorshein/cordova-plugin-calllog-write.git"
+  },
+  "keywords": [
+    "contacts",
+    "calls",
+    "calllog",
+    "numbers",
+    "history",
+    "phone",
+    "list",
+    "insert",
+    "add",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=3.7.0"
+    }
+  ],
+  "author": "Ihor Shein",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/ihorshein/cordova-plugin-calllog-write/issues"
+  },
+  "homepage": "https://github.com/ihorshein/cordova-plugin-calllog-write#readme"
+}

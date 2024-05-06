@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-calllog-write"
+  version="1.0.0"
+>
+  <name>CallLogWrite</name>
+  <description>Cordova plugin that allows the application to write the user's call log data.</description>
+  <license>Apache 2.0</license>
+  <keywords>contacts,calls,calllog,numbers,history,phone,list,insert,add</keywords>
+
+  <js-module src="www/CallLogWrite.js" name="CallLogWrite">
+    <clobbers target="cordova.plugins.CallLogWrite" />
+  </js-module>
+
+  <engines>
+    <engine name="cordova-android" version=">=3.7.0" />
+  </engines>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CallLogWrite">
+        <param name="android-package" value="com.ihorshein.cordova.plugins.CallLogWrite" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    </config-file>
+
+    <source-file src="src/com/ihorshein/cordova/plugins/CallLogWrite.java" target-dir="src/com/ihorshein/cordova/plugins" />
+  </platform>
+</plugin>
