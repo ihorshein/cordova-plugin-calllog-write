@@ -109,7 +109,7 @@ function CallLogWrite()
 }
 
 /**
- * Write multiple call logs to the device.
+ * Inserts multiple call logs to the device.
  *
  * @param {{
  *  number: string,
@@ -130,9 +130,9 @@ function CallLogWrite()
  * @param {Function} call_success A success callback function.
  * @param {Function} call_error An error callback function.
  */
-CallLogWrite.prototype.writeBulk = function(a_log, has_permission, call_success, call_error)
+CallLogWrite.prototype.insertBulk = function(a_log, has_permission, call_success, call_error)
 {
-  argscheck.checkArgs('a*ff', 'CallLogWrite.writeBulk', arguments);
+  argscheck.checkArgs('a*ff', 'CallLogWrite.insertBulk', arguments);
 
   const a_key_allowed = [this.NUMBER, this.DATE, this.DURATION, this.TYPE, this.NEW, this.IS_READ];
 
@@ -141,7 +141,7 @@ CallLogWrite.prototype.writeBulk = function(a_log, has_permission, call_success,
     if(!a_log.hasOwnProperty(i))
       continue;
 
-    argscheck.checkArgs('snnnnn', 'CallLogWrite.writeBulk', Object.values(a_log[i]));
+    argscheck.checkArgs('snnnnn', 'CallLogWrite.insertBulk', Object.values(a_log[i]));
 
     const a_key = Object.keys(a_log[i]);
 
@@ -155,7 +155,22 @@ CallLogWrite.prototype.writeBulk = function(a_log, has_permission, call_success,
     }
   }
 
-  exec(call_success, call_error, 'CallLogWrite', 'writeBulk', [a_log, has_permission]);
+  exec(call_success, call_error, 'CallLogWrite', 'insertBulk', [has_permission, a_log]);
+};
+
+/**
+ * Clears the call log.
+ *
+ * @param {boolean} has_permission Whether the application has permission or not.
+ *  `false` if the permission should be requested, `true` otherwise.
+ * @param {Function} call_success A success callback function.
+ * @param {Function} call_error An error callback function.
+ */
+CallLogWrite.prototype.clear = function(has_permission, call_success, call_error)
+{
+  argscheck.checkArgs('*ff', 'CallLogWrite.clear', arguments);
+
+  exec(call_success, call_error, 'CallLogWrite', 'clear', [has_permission]);
 };
 
 module.exports = new CallLogWrite();

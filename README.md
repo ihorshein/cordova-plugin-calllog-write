@@ -39,8 +39,20 @@ as will be shown in the example below.
  * @param {Function} call_success A success callback function.
  * @param {Function} call_error An error callback function.
  */
-CallLogWrite::writeBulk(a_log, has_permission, call_success, call_error);
+CallLogWrite::insertBulk(a_log, has_permission, call_success, call_error);
 ```
+```javascript
+/**
+ * Clears the call log.
+ *
+ * @param {boolean} has_permission Whether the application has permission or not.
+ *  `false` if the permission should be requested, `true` otherwise.
+ * @param {Function} call_success A success callback function.
+ * @param {Function} call_error An error callback function.
+ */
+CallLogWrite::clear(has_permission, call_success, call_error)
+```
+
 
 ## field descriptions
 ```javascript
@@ -124,6 +136,18 @@ try
 {
   const o_call_log_write = cordova.plugins.CallLogWrite;
 
+  // Clearing the call list
+  o_call_log_write.clear(false,     
+    function()
+    {
+      alert('Ok ' + JSON.stringify(arguments));
+    },
+    function()
+    {
+      alert('Error ' + JSON.stringify(arguments));
+    }
+  );
+  
   // Write multiple call logs.
   const o_log1 = {};
   o_log1[o_call_log_write.NUMBER] = '1234-5678-90';
@@ -141,7 +165,7 @@ try
   o_log2[o_call_log_write.NEW] = 1;
   o_log2[o_call_log_write.IS_READ] = 0;
 
-  o_call_log_write.writeBulk(
+  o_call_log_write.insertBulk(
     [o_log1, o_log2],
     true, // Application already has access to the permission
     function()
@@ -151,7 +175,8 @@ try
     function()
     {
       alert('Error ' + JSON.stringify(arguments));
-    });
+    }
+  );
 }
 catch(e)
 {
