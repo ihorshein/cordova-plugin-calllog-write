@@ -160,16 +160,16 @@ try
       o_log2[o_call_log_write.IS_READ] = 0;
 
       o_call_log_write.insertBulk(
-          [o_log1, o_log2],
-          true, // Application already has access to the permission.
-          function()
-          {
-            alert('Insert ' + JSON.stringify(arguments));
-          },
-          function()
-          {
-            alert('Error ' + JSON.stringify(arguments));
-          }
+        [o_log1, o_log2],
+        true, // Application already has access to the permission.
+        function()
+        {
+          alert('Insert ' + JSON.stringify(arguments));
+        },
+        function()
+        {
+          alert('Error ' + JSON.stringify(arguments));
+        }
       );
     },
     function()
