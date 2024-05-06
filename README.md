@@ -42,6 +42,82 @@ as will be shown in the example below.
 CallLogWrite::writeBulk(a_log, has_permission, call_success, call_error);
 ```
 
+## field descriptions
+```javascript
+/**
+ * The phone number as the user entered it.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#NUMBER
+ */
+NUMBER = 'number';
+
+/**
+ * The date the call occured, in milliseconds since the epoch.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#DATE
+ */
+DATE = 'date';
+
+/**
+ * The duration of the call in seconds.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#DURATION
+ */
+DURATION = 'duration';
+
+/**
+ * The type of the call (incoming, outgoing or missed).
+ *
+ * Allowed values:
+ * * INCOMING_TYPE,
+ * * OUTGOING_TYPE,
+ * * MISSED_TYPE.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#TYPE
+ */
+TYPE = 'type';
+
+/**
+ * Whether or not the call has been acknowledged.
+ * `1` if the call is new, `0` otherwise.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#NEW
+ */
+NEW = 'new';
+
+/**
+ * Whether this item has been read or otherwise consumed by the user.
+ *
+ * Unlike the {@link CallLogWrite.NEW} field, which requires the user to have acknowledged the existence of the entry,
+ *  this implies the user has interacted with the entry.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#IS_READ
+ */
+IS_READ = 'is_read';
+
+/**
+ * Call log type for incoming calls.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#INCOMING_TYPE
+ */
+INCOMING_TYPE = 1;
+
+/**
+ * Call log type for outgoing calls.
+ *
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#OUTGOING_TYPE
+ */
+OUTGOING_TYPE = 2;
+
+/**
+ * Call log type for missed calls.
+ * 
+ * @link https://developer.android.com/reference/android/provider/CallLog.Calls#MISSED_TYPE
+ */
+MISSED_TYPE = 3;
+```
+
+
 ## example
 ```javascript
 try

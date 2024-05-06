@@ -11,6 +11,7 @@ function CallLogWrite()
   /**
    * The phone number as the user entered it.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#NUMBER
@@ -20,6 +21,7 @@ function CallLogWrite()
   /**
    * The date the call occured, in milliseconds since the epoch.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#DATE
@@ -29,6 +31,7 @@ function CallLogWrite()
   /**
    * The duration of the call in seconds.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#DURATION
@@ -43,6 +46,7 @@ function CallLogWrite()
    * * {@link CallLogWrite.OUTGOING_TYPE},
    * * {@link CallLogWrite.MISSED_TYPE}.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#TYPE
@@ -53,6 +57,7 @@ function CallLogWrite()
    * Whether or not the call has been acknowledged.
    * `1` if the call is new, `0` otherwise.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#NEW
@@ -65,6 +70,7 @@ function CallLogWrite()
    * Unlike the {@link CallLogWrite.NEW} field, which requires the user to have acknowledged the existence of the entry,
    *  this implies the user has interacted with the entry.
    *
+   * @constant
    * @type {string}
    *
    * @link https://developer.android.com/reference/android/provider/CallLog.Calls#IS_READ
