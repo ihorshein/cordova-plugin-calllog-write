@@ -62,7 +62,7 @@ public class CallLogWrite extends CordovaPlugin
   }
 
   @Override
-  public void onRequestPermissionResult(int requestCode, String[] permissions, @NonNull int[] grantResults) throws JSONException
+  public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException
   {
     for(int r : grantResults)
     {
