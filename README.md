@@ -12,7 +12,7 @@ cordova plugin add https://github.com/ihorshein/cordova-plugin-calllog-write
 ## permission
 The plugin requires the following permission: [WRITE_CALL_LOG](https://developer.android.com/reference/android/Manifest.permission#WRITE_CALL_LOG)
 
-By default, permissions can be requested on every call, but this behavior can be changed 
+By default, permission can be requested on every call, but this behavior can be changed 
 as will be shown in the example below.
 
 ## interface
