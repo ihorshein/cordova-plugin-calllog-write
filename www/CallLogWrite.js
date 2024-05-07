@@ -141,8 +141,6 @@ CallLogWrite.prototype.insertBulk = function(a_log, has_permission, call_success
     if(!a_log.hasOwnProperty(i))
       continue;
 
-    argscheck.checkArgs('snnnnn', 'CallLogWrite.insertBulk', Object.values(a_log[i]));
-
     const a_key = Object.keys(a_log[i]);
 
     if(a_key.length !== a_key_allowed.length)
@@ -153,6 +151,12 @@ CallLogWrite.prototype.insertBulk = function(a_log, has_permission, call_success
       if(a_key.indexOf(a_key_allowed[j]) === -1)
         throw new Error('CallLogWrite: The call log object does not have the correct fields.');
     }
+
+    a_log[i]['date'] = parseInt(a_log[i]['date']);
+    a_log[i]['duration'] = parseInt(a_log[i]['duration']);
+    a_log[i]['type'] = parseInt(a_log[i]['type']);
+    a_log[i]['new'] = parseInt(a_log[i]['new']);
+    a_log[i]['is_read'] = parseInt(a_log[i]['is_read']);
   }
 
   exec(call_success, call_error, 'CallLogWrite', 'insertBulk', [has_permission, a_log]);
